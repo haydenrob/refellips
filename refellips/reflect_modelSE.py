@@ -259,7 +259,7 @@ def Delta_Psi_TMM(AOI, layers, wavelength, delta_offset, reflect_delta=False):
     AOI = np.asfarray(AOI)
     AOI = AOI * (np.pi / 180)
 
-    layers[0, 2] = 0  # infinate medium cannot have an extinction coeff
+    layers[0, 2] = 0  # infinite medium cannot have an extinction coeff
     RIs = layers[:, 1] + layers[:, 2] * 1j
     thicks = layers[:, 0] / 10  # Ang to nm
     thicks[0] = np.inf
@@ -309,9 +309,7 @@ class ReflectModelSE:
         self._structure = None
         self.structure = structure
 
-        self.DeltaOffset = possibly_create_parameter(
-            delta_offset, name="delta offset"
-        )
+        self.DeltaOffset = possibly_create_parameter(delta_offset, name="delta offset")
 
     def __call__(self, wavelength_aoi, p=None):
         r"""

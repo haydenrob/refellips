@@ -87,11 +87,13 @@ def plot_ellipsdata(
         if model != None:
             print(x)
             for idx, wav in enumerate(np.unique(data.wavelength)):
-                wavelength, aoi, d_psi, d_delta = list(data.unique_wavelength_data())[idx]
+                wavelength, aoi, d_psi, d_delta = list(data.unique_wavelength_data())[
+                    idx
+                ]
 
                 psi, delta = model(np.c_[np.ones_like(aoi) * wavelength, aoi])
-                ax.plot(np.ones_like(psi) * wavelength, psi, color='r')
-                axt.plot(np.ones_like(delta) * wavelength, delta, color='b')
+                ax.plot(np.ones_like(psi) * wavelength, psi, color="r")
+                axt.plot(np.ones_like(delta) * wavelength, delta, color="b")
 
             xlab = "Wavelength, nm"
 
